@@ -1,4 +1,4 @@
-// Crear una lista de contactos con datos predefinidos
+
 let listaContactos = [
     {
       id: 1,
@@ -32,20 +32,22 @@ let listaContactos = [
     }
   ];
 
-// Función para añadir un nuevo contacto a la lista
-function agregarContacto(contacto) {
-}
-listaContactos.push(contacto);
-
-// Función para borrar un contacto existente de la lista
-function borrarContacto(id) {
-    let indice = listaContactos.findIndex(function(contacto) {return contacto.id === id; });
-    if (indice !== -1) {
-      listaContactos.splice(indice, 1);
+  let nuevoContacto = {
+    id: 4,
+    nombres: "Ana",
+    apellidos: "Gomez",
+    telefono: "654987321",
+    ubicaciones: {
+      ciudad: "Santa Rosa",
+      direccion: "Dirección 4"
     }
-  }
+  };
+  agregarContacto(nuevoContacto);
 
-// Función para imprimir los contactos en la consola
+imprimirContactos();
+
+
+  // Función para imprimir los contactos 
 function imprimirContactos() {
     console.log("Lista de contactos:");
     for (let i = 0; i < listaContactos.length; i++) {
@@ -60,9 +62,32 @@ function imprimirContactos() {
       );
     }
   }
-imprimirContactos();
+  
 
+// Función para añadir un nuevo contacto 
+function agregarContacto(id, nombres, apellidos, telefono, ciudad, direccion) {
+    let nuevoContacto = {
+      id: id,
+      nombres: nombres,
+      apellidos: apellidos,
+      telefono: telefono,
+      ubicaciones: {
+        ciudad: ciudad,
+        direccion: direccion
+      }
+    };
+    listaContactos.push(nuevoContacto);
+  }
 
+// Función para borrar un contacto existente de la lista
+function borrarContacto(id) {
+    let indice = listaContactos.findIndex(function(contacto) {return contacto.id === id; });
+    if (indice !== -1) {
+      listaContactos.splice(indice, 1);
+    }
+  }
+
+  
 
 /*
 Ajusta las funciones de crear y eliminar un contacto para que puedan almacenar la siguiente información como objetos:
